@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Ari Lisner - Researcher and Writer based in NYC">
+	<meta name="author" content="Ari Lisner">
+	<meta name="keywords" content="researcher, writer, NYC, journalism, research strategy">
+	<title>ARILISNER.FYI</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<header>
+		<div class="intro">
+			<h1>ARILISNER<span class="rainbow-text">.FYI</span></h1>
+			<p>Researcher and Writer in NYC</p>
+		</div>
+	</header>
+
+	<nav>
+		<ul>
+			<li><a href="#about">About</a></li>
+			<li><a href="#poetry">Poetry</a></li>
+			<li><a href="#journalism">Journalism</a></li>
+			<li><a href="#events">Events</a></li>
+			<li><a href="#contact">Contact</a></li>
+		</ul>
+	</nav>
+
+	<ul class="work-history">
+		<!-- EBAY -->
+		<li class="job click">
+			<a class="click-link" href="https://www.ebay.com/" target="_blank"
+				title="Senior Insights Manager, Fashion"></a>
+			<div class="business">Ebay</div>
+			<div class="date">
+				<div class="start">2024</div>
+				<div class="span">→</div>
+				<div class="end current">....</div>
+			</div>
+			<div class="indicator">[↗]</div>
+		</li>
+		<!-- CNET -->
+		<li class="job click">
+			<a class="click-link" href="https://www.cnet.com/" target="_blank"
+				title="Senior Research Strategy Manager"></a>
+			<div class="business">CNET</div>
+			<div class="date">
+				<div class="start">2022</div>
+				<div class="span">→</div>
+				<div class="end">2024</div>
+			</div>
+			<div class="indicator">[↗]</div>
+		</li>
+		<!-- NY TIMES -->
+		<li class="job click">
+			<a class="click-link" href="https://www.nytimes.com/" target="_blank" title="Custom Insights Manager"></a>
+			<div class="business">The New York Times</div>
+			<div class="date">
+				<div class="start">2020</div>
+				<div class="span">→</div>
+				<div class="end">2022</div>
+			</div>
+			<div class="indicator">[↗]</div>
+		</li>
+		<!-- CONDENAST -->
+		<li class="job click">
+			<a class="click-link" href="https://www.condenast.com/" target="_blank" title="Research Analyst"></a>
+			<div class="business">Condé Nast</div>
+			<div class="date">
+				<div class="start">2019</div>
+				<div class="span">→</div>
+				<div class="end">2020</div>
+			</div>
+			<div class="indicator">[↗]</div>
+		</li>
+		<!-- ANSWERLAB -->
+		<li class="job click">
+			<a class="click-link" href="https://www.answerlab.com/" target="_blank" title="Quantitative UX Analyst"></a>
+			<div class="business">AnswerLab</div>
+			<div class="date">
+				<div class="start">2018</div>
+				<div class="span">→</div>
+				<div class="end">2019</div>
+			</div>
+			<div class="indicator">[↗]</div>
+		</li>
+		<!-- CORNELL -->
+		<li class="job click">
+			<a class="click-link" href="https://www.cornell.edu/" target="_blank"
+				title="Psychology Research Lab Manager"></a>
+			<div class="business">Cornell University</div>
+			<div class="date">
+				<div class="start">2016</div>
+				<div class="span">→</div>
+				<div class="end">2018</div>
+			</div>
+			<div class="indicator">[↗]</div>
+		</li>
+
+		<!-- MISC -->
+		<li class="job">
+			<a class="click-link"
+				title="Miscellaneous Work Experience"></a>
+			<div class="business">Misc</div>
+			<div class="date">
+				<div class="start">2014</div>
+				<div class="span">→</div>
+				<div class="end">2016</div>
+			</div>
+			<div class="indicator">[-]</div>
+
+	</ul>
+	<footer>
+		<nav>
+			<ul class="social-links">
+				<li>
+					<a href="#" class="copy-link" data-copy="hello@example.com"> EMAIL<span class="indicator">[+]</span>
+					</a>
+				</li>
+				<li>
+					<a href="https://linkedin.com/" target="_blank"> LINKEDIN<span class="indicator">[↗]</span>
+					</a>
+				</li>
+				<li>
+					<a href="https://instagram.com/" target="_blank"> INSTAGRAM<span class="indicator">[↗]</span>
+					</a>
+				</li>
+				<li>
+					<a href="https://twitter.com/" target="_blank">TWITTER<span class="indicator">[↗]</span>
+					</a>
+				</li>
+		</nav>
+	</footer>
+</body>
+<script>
+
+	// Copy utility function
+	const initCopyToClipboard = (element, options = {}) => {
+		const defaults = {
+			textToCopy: '',
+			textAttribute: 'data-copy',
+			indicatorSelector: '.indicator',
+			copiedText: '[Copied]',
+			duration: 2000,
+			fadeOutDuration: 200, // Duration for fade out transition
+			activeClass: 'is-copying'
+		};
+
+		const settings = { ...defaults, ...options };
+		const indicator = element.querySelector(settings.indicatorSelector);
+
+		if (!indicator) {
+			console.warn('No indicator element found');
+			return;
+		}
+
+		element.addEventListener('click', async (e) => {
+			e.preventDefault();
+
+			const textToCopy = element.getAttribute(settings.textAttribute) || settings.textToCopy;
+
+			if (!textToCopy) {
+				console.warn('No text to copy specified');
+				return;
+			}
+
+			try {
+				await navigator.clipboard.writeText(textToCopy);
+
+				const originalText = indicator.textContent;
+				element.classList.add(settings.activeClass);
+
+				// Show copied text
+				indicator.textContent = settings.copiedText;
+				indicator.style.opacity = '1';
+
+				// First fade out
+				setTimeout(() => {
+					indicator.style.opacity = '0';
+
+					// After fade out completes, reset everything
+					setTimeout(() => {
+						indicator.textContent = originalText;
+						indicator.style.removeProperty('opacity');
+						element.classList.remove(settings.activeClass);
+					}, settings.fadeOutDuration);
+
+				}, settings.duration);
+
+			} catch (err) {
+				console.error('Failed to copy text:', err);
+			}
+		});
+	};
+	// Initialize all copy links
+	document.querySelectorAll('.copy-link').forEach(element => {
+		initCopyToClipboard(element);
+	});
+</script>
+
+</html>

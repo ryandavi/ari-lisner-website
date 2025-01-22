@@ -1,0 +1,231 @@
+/* Base styles */
+:root {
+  --background-color: #e2ddd7;
+  --text-color: rgb(36, 36, 36);
+  --lighter-text-color: #666;
+  --secondary-color: #919191;
+  --secondary-hover-color: #e2ddd7;
+  --active-color: #0070f3;
+  --background-hover: rgba(0, 0, 0, 0.02);
+  --background-active: rgb(36, 36, 36);
+  --background-active-text: #e2ddd7;
+  --border-radius: 3px;
+}
+
+body {
+  font-family: monospace, monospace;
+  padding: 2rem;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  text-transform: uppercase;
+  min-width: 320px;
+}
+
+.rainbow-text {
+  background-image: repeating-linear-gradient(45deg, violet, indigo, blue, green, yellow, orange, red, violet);
+  text-align: center;
+  background-size: 800% 800%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow 8s ease infinite;
+}
+
+@keyframes rainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 25%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/* Header styles */
+header .intro h1 {
+  font-weight: bold;
+}
+
+/* Work history styles */
+.work-history {
+  display: table;
+  margin: 0;
+  padding: 0;
+  margin-top: 1rem;
+}
+.work-history .job {
+  display: table-row;
+  transition: background-color 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+.work-history .job:hover .indicator {
+  opacity: 1;
+}
+.work-history .job.click:hover {
+  background-color: var(--background-hover);
+  cursor: pointer;
+}
+.work-history .job.click:active {
+  background-color: var(--background-active);
+  color: var(--background-active-text);
+}
+.work-history .job.click:active .indicator {
+  color: var(--secondary-hover-color);
+}
+.work-history .job > * {
+  display: table-cell;
+  vertical-align: middle;
+}
+.work-history .job > div:first-of-type {
+  padding-left: var(--border-radius);
+  border-top-left-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+}
+.work-history .job > div:last-of-type {
+  padding-right: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+}
+.work-history .job > .click-link {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.work-history .job .business {
+  font-weight: 500;
+}
+.work-history .job .date {
+  display: table-cell;
+  white-space: nowrap;
+  padding-left: 1rem;
+}
+.work-history .job .date > * {
+  display: inline-block;
+}
+.work-history .job .date > .end.current {
+  color: var(--secondary-color);
+}
+
+.indicator {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  color: var(--secondary-color);
+  text-align: right;
+  padding-left: 0.5rem;
+}
+
+nav {
+  margin-top: 1rem;
+}
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Footer styles */
+footer {
+  margin-top: 1rem;
+}
+footer .social-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+footer .social-links li a {
+  display: inline-block;
+  color: #000;
+  text-decoration: none;
+  position: relative;
+  border-radius: var(--border-radius);
+  padding: 0 var(--border-radius);
+}
+footer .social-links li a:hover {
+  background-color: var(--background-hover);
+}
+footer .social-links li a:hover .indicator {
+  opacity: 1;
+}
+footer .social-links li a:hover {
+  cursor: pointer;
+}
+footer .social-links li a:active {
+  background-color: var(--background-active);
+  color: var(--background-active-text);
+}
+footer .social-links li a:active .indicator {
+  color: var(--secondary-hover-color);
+}
+footer .social-links li a.is-copying .indicator {
+  color: var(--active-color);
+}
+
+.copy-link {
+  cursor: copy;
+}/*# sourceMappingURL=style.css.map */
